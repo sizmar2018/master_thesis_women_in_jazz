@@ -1,0 +1,11 @@
+data/mjf
+data/mjf/*
+
+data/albums/discogs_albums.csv
+
+code/__pycache__/
+code/__pycache__/*
+
+code/musicBrainz/__pycache__/
+code/musicBrainz/__pycache__/*
+
