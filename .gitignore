@@ -9,3 +9,10 @@ code/__pycache__/*
 code/musicBrainz/__pycache__/
 code/musicBrainz/__pycache__/*
 
+
+code/cleaning/__pycache__/
+code/cleaning/__pycache__/*
+
+
+code/utils/__pycache__/
+code/utils/__pycache__/*

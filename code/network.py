@@ -18,13 +18,16 @@ import matplotlib.pyplot as plt
 import matplotlib.colors as colors
 import matplotlib.cm as cm
 
-from  utils import *
+import sys
+sys.path.append('./utils')
+
+from utils import *
 
 class Network:
     
     def __init__(self):
-        self.utils = Utils()
-
+      #  self.utils = Utils()
+        return
     def create_subgraph(self,G,album_id,album_title,artist_id,artist_name,nb_album,role) :
         artist_id = np.int64("999" + str(artist_id))
         album_id = np.int64(album_id)
@@ -75,8 +78,64 @@ class Network:
 
         return (G,nb_album)
         
+    def build_album_projection_network(self,results) :  
+       
+        G = nx.Graph()
+        for alb in results:
+            G.add_node(alb['id'], name=alb['title'], col = alb['artists'])
+            
+            for neighbor in G.nodes(data=True):  #Check for mutual collaboration     
+                if neighbor[0] == alb['id'] : #same node 
+                    continue
+                
+                artists = neighbor[1]['col']
+                col_set = set()
+                for art in alb['artists']:
+                    for neighbor_art in artists :
+                        if neighbor_art['id'] == art['id'] :
+                            if neighbor_art['id'] not in col_set :
+                                col_set.add(neighbor_art['id'])
+                                if not G.has_edge(alb['id'],neighbor[0]) :
+                                        G.add_edge(alb['id'],neighbor[0],weight = 1)    
+                                else :
+                                        G[alb['id']][neighbor[0]]['weight'] = G[alb['id']][neighbor[0]]['weight'] + 1 
+
+        #remove artists attribut/ allow to save 
+        for (n,d) in G.nodes(data=True):
+            del d["col"]
+        
+        return G   
+ 
+
+
+    def build_collaborators_projection_network(self,results) :
+        G = nx.Graph()
+        for alb in results:
+            artists = alb['artists']
+            for i in range(0,len(artists)-1):  #Check for mutual collaboration     
+                treated = set()
+                for j in range(i+1,len(artists)): 
+                    art_in = artists[i]
+                    art_out = artists[j] 
+
+                    if art_out['id'] in treated or art_in['id'] in treated  or  art_in['id'] == art_out['id'] :
+                        continue    
+
+                    treated.add(art_in['id'])
+                    if not G.has_node(art_in['id']) :
+                        G.add_node(art_in['id'], name = art_in['name'])                        
+                    if not G.has_node(art_out['id']):
+                        G.add_node(art_out['id'], name = art_out['name'])     
+                
+
+                    if not G.has_edge(art_in['id'],art_out['id']) :
+                        G.add_edge(art_in['id'],art_out['id'],weight = 1)    
+                    else :
+                        G[art_in['id']][art_out['id']]['weight'] = G[art_in['id']][art_out['id']]['weight'] + 1  
+        return G
+    
     def save_graph(self,g,path) :
-        nx.write_gexf(g, path)
+        nx.write_gexf(g,path)
 
     def get_network_info(self,g):
         print("nb nodes: ",len(g.nodes))
