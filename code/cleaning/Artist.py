@@ -2,11 +2,11 @@
 
 class Artist(object):
   
-  def __init__(self,id,name,roles,main=False):
+  def __init__(self,id,name,roles):
     self.id = id
     self.name = name
     self.roles = roles
-    self.main = main
+   
 
   def to_dict(self):
         
@@ -14,5 +14,5 @@ class Artist(object):
             'id': self.id,
             'name': self.name,
             'role' : self.roles,
-            'main' :self.main
+           
         }   

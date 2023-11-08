@@ -78,22 +78,21 @@ class Network:
 
         return (G,nb_album)
         
-    def build_album_projection_network(self,results) :  
+    def build_album_projection_network(self,results,title_keyword,part_keyword) :  
        
         G = nx.Graph()
         for alb in results:
-            G.add_node(alb['id'], name=alb['title'], col = alb['artists'])
+            G.add_node(alb['id'], name = alb[title_keyword], col = alb[part_keyword])
             
-            for neighbor in G.nodes(data=True):  #Check for mutual collaboration     
+            for neighbor in G.nodes(data=True):  # Check for mutual collaboration     
                 if neighbor[0] == alb['id'] : #same node 
                     continue
                 
                 artists = neighbor[1]['col']
                 col_set = set()
-                for art in alb['artists']:
+                for art in alb[part_keyword]:
                     for neighbor_art in artists :
-                        if neighbor_art['id'] == art['id'] :
-                            if neighbor_art['id'] not in col_set :
+                        if neighbor_art['id'] == art['id'] and neighbor_art['id'] not in col_set:
                                 col_set.add(neighbor_art['id'])
                                 if not G.has_edge(alb['id'],neighbor[0]) :
                                         G.add_edge(alb['id'],neighbor[0],weight = 1)    
@@ -108,10 +107,10 @@ class Network:
  
 
 
-    def build_collaborators_projection_network(self,results) :
+    def build_collaborators_projection_network(self,results,idx_keyword) :
         G = nx.Graph()
         for alb in results:
-            artists = alb['artists']
+            artists = alb[idx_keyword]
             for i in range(0,len(artists)-1):  #Check for mutual collaboration     
                 treated = set()
                 for j in range(i+1,len(artists)): 

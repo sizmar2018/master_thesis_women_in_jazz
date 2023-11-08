@@ -15,15 +15,17 @@ class Utils:
         role = role.lower()
         role = re.sub("by", "", role)
         role = re.sub("-", " ", role)
-        role = re.split(r"\[([A-Za-z0-9_\s\S,]+)\]", role)[0]
+        role = re.sub(r"\[([A-Za-z0-9_\s\S,]+)\]","", role)
         return role 
 
     def get_albums_info_from_json(self,tuple):
-        
+       
         albums_id = np.int64(tuple["id"])
         album_title = tuple["title"]
         album_description = tuple["formats"]
-       
+        album_style =  None
+        if "styles" in tuple :  
+              album_style =  tuple["styles"]
         if "descriptions" in album_description[0] :  
             album_description = album_description[0]["descriptions"]
         if 'Compilation' in album_description:
@@ -34,15 +36,16 @@ class Utils:
         
         for art in extra_artists : 
             clean_roles = list()
-            for r in art["role"]:
-                role = self.clean_role(r)   
-                role = role.strip()
-                if "a&r" not in role :
-                    clean_roles.append(role)
+           
+            role = self.clean_role(art["role"])   
+            roles = role.split(',')
+            for r in  roles :
+                if "a&r" not in roles :
+                    clean_roles.append(r.strip())
             artists.append({"id":art["id"],"name":art["name"],"role": clean_roles})
         #label
         label = tuple['labels'][0]['name']
-        return (albums_id,album_title,artists,label)  
+        return (albums_id,album_title,artists,label,album_style)  
 
     def load_data_top_5000_albums(self):
         df = pd.read_csv(self.config['DEFAULT']['TOP_5000_PATH'],sep=",")
