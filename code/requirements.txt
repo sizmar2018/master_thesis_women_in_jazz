@@ -1,3 +1,7 @@
 networkx
 pandas
 numpy
+beautifulsoup4
+json
+sqlalchemy
+urllib
