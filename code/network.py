@@ -85,6 +85,7 @@ class Network:
             G.add_node(alb['id'], name = alb[title_keyword], col = alb[part_keyword])
             
             for neighbor in G.nodes(data=True):  # Check for mutual collaboration     
+                
                 if neighbor[0] == alb['id'] : #same node 
                     continue
                 
@@ -93,12 +94,14 @@ class Network:
                 for art in alb[part_keyword]:
                     for neighbor_art in artists :
                         if neighbor_art['id'] == art['id'] and neighbor_art['id'] not in col_set:
+                            
                                 col_set.add(neighbor_art['id'])
                                 if not G.has_edge(alb['id'],neighbor[0]) :
-                                        G.add_edge(alb['id'],neighbor[0],weight = 1)    
+                                       
+                                        G.add_edge(alb['id'],neighbor[0],weight = 1, col= str(neighbor_art['id']) )    
                                 else :
                                         G[alb['id']][neighbor[0]]['weight'] = G[alb['id']][neighbor[0]]['weight'] + 1 
-
+                                        G[alb['id']][neighbor[0]]['col'] = G[alb['id']][neighbor[0]]['col'] +"," + str(neighbor_art['id'])
         #remove artists attribut/ allow to save 
         for (n,d) in G.nodes(data=True):
             del d["col"]

@@ -1,15 +1,15 @@
 
 class Album(object):
   
-  def __init__(self,id,title,artists,year,labels,styles,rank,rating):
+  def __init__(self,id,title,artists,year,labels,rank,rating,genres):
     
     self.id = id
     self.title = title
     self.artists = artists
-    #self.countries= countries
+    self.genres= genres
     self.year= year
     self.labels= labels
-    self.styles = styles
+    #self.styles = styles
     self.rank = rank
     self.rating = rating
  
@@ -20,11 +20,11 @@ class Album(object):
             'id': self.id,
             'title': self.title,
             'artists': self.artists,
-           #  'countries' : self.countries,
             'year' : self.year,
             'labels' : self.labels,
-            'styles' : self.styles,
+           # 'styles' : self.styles,
             'rank': self.rank,
-            'rating':self.rating
+            'rating': self.rating,
+            'genres' : self.genres
         }   
   

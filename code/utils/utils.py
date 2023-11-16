@@ -36,7 +36,7 @@ class Utils:
 
 
     def cluster_role(self,roles) : 
-        instruments = pd.read_csv('../../data/instruments.csv',sep=',')
+        instruments = pd.read_csv('../../data/instruments/instruments.csv',sep=',')
         instruments['sub_instru'] = instruments['sub_instru'].apply(lambda x :x.split(','))
         clean_roles = list()
         for r in  roles :          
@@ -78,24 +78,32 @@ class Utils:
         albums_id = np.int64(tuple["id"])
         album_title = tuple["title"]
         album_description = tuple["formats"]
-        album_style =  None
-        if "styles" in tuple :  
-              album_style =  tuple["styles"]
+       # album_style =  None
+        #if "styles" in tuple :  
+         #     album_style = tuple["styles"]
         if "descriptions" in album_description[0] :  
             album_description = album_description[0]["descriptions"]
         if 'Compilation' in album_description:
             return None
         
         extra_artists = tuple["extraartists"]
-        artists = list()
+        main_artist_id = set()
+      
         
+        for main_artist in tuple["artists"] :
+            main_artist_id.add(main_artist['id'])
+       
+        artists = list()
         for art in extra_artists : 
             clean_roles = self.clean_role(art["role"]) 
-            clean_name =  self.clean_artist_name(art["name"])
+            clean_name = self.clean_artist_name(art["name"])
+            if art["id"] in main_artist_id : 
+                clean_roles.append("main artist")
+            
             artists.append({"id":art["id"],"name":clean_name,"role": clean_roles})
         #label
-        label = tuple['labels'][0]['name']
-        return (albums_id,album_title,artists,label,album_style)  
+        label = tuple['labels'][0]['name'].split(",")
+        return (albums_id,album_title,artists,label)  
 
     def load_data_top_5000_albums(self):
         df = pd.read_csv(self.config['DEFAULT']['TOP_5000_PATH'],sep=",")

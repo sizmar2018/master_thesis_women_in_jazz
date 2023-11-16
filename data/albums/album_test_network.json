@@ -1,0 +1,692 @@
+[
+    {
+        "id": 14546480,
+        "title": "The Complete Hank Mobley Blue Note Sessions 1963-70",
+        "artists": [
+            {
+                "id": 122384,
+                "name": "jackie mclean",
+                "role": [
+                    "saxophone"
+                ]
+            },
+            {
+                "id": 262505,
+                "name": "james spaulding",
+                "role": [
+                    "saxophone"
+                ]
+            },
+            {
+                "id": 29955,
+                "name": "duke pearson",
+                "role": [
+                    "arranged"
+                ]
+            },
+            {
+                "id": 135872,
+                "name": "hank mobley",
+                "role": [
+                    "arranged",
+                    "main artist"
+                ]
+            },
+            {
+                "id": 934881,
+                "name": "alby cullaz",
+                "role": [
+                    "recorder"
+                ]
+            },
+            {
+                "id": 135870,
+                "name": "bob cranshaw",
+                "role": [
+                    "recorder"
+                ]
+            },
+            {
+                "id": 252748,
+                "name": "butch warren",
+                "role": [
+                    "recorder"
+                ]
+            },
+            {
+                "id": 292995,
+                "name": "john ore",
+                "role": [
+                    "recorder"
+                ]
+            },
+            {
+                "id": 264870,
+                "name": "larry ridley",
+                "role": [
+                    "recorder"
+                ]
+            },
+            {
+                "id": 467999,
+                "name": "mickey bass",
+                "role": [
+                    "recorder"
+                ]
+            },
+            {
+                "id": 259778,
+                "name": "paul chambers",
+                "role": [
+                    "recorder"
+                ]
+            },
+            {
+                "id": 95088,
+                "name": "ron carter",
+                "role": [
+                    "recorder"
+                ]
+            },
+            {
+                "id": 274390,
+                "name": "walter booker",
+                "role": [
+                    "recorder"
+                ]
+            },
+            {
+                "id": 257251,
+                "name": "\"philly\" joe jones",
+                "role": [
+                    "drums"
+                ]
+            },
+            {
+                "id": 135871,
+                "name": "billy higgins",
+                "role": [
+                    "drums"
+                ]
+            },
+            {
+                "id": 274396,
+                "name": "leroy williams",
+                "role": [
+                    "drums"
+                ]
+            },
+            {
+                "id": 334142,
+                "name": "kiane zawadi",
+                "role": [
+                    "euphonium",
+                    "trombone"
+                ]
+            },
+            {
+                "id": 255117,
+                "name": "woody shaw",
+                "role": [
+                    "flugelhorn"
+                ]
+            },
+            {
+                "id": 262505,
+                "name": "james spaulding",
+                "role": [
+                    "flute"
+                ]
+            },
+            {
+                "id": 574247,
+                "name": "eddie diehl",
+                "role": [
+                    "guitar"
+                ]
+            },
+            {
+                "id": 2266,
+                "name": "george benson",
+                "role": [
+                    "guitar"
+                ]
+            },
+            {
+                "id": 804840,
+                "name": "sonny greenwich",
+                "role": [
+                    "guitar"
+                ]
+            },
+            {
+                "id": 386428,
+                "name": "malcolm addey",
+                "role": [
+                    "mastered"
+                ]
+            },
+            {
+                "id": 0,
+                "name": "mosaic images l.l.c.",
+                "role": [
+                    "photography"
+                ]
+            },
+            {
+                "id": 292019,
+                "name": "francis wolff",
+                "role": [
+                    "photography"
+                ]
+            },
+            {
+                "id": 61584,
+                "name": "andrew hill",
+                "role": [
+                    "piano"
+                ]
+            },
+            {
+                "id": 277632,
+                "name": "barry harris",
+                "role": [
+                    "piano"
+                ]
+            },
+            {
+                "id": 135873,
+                "name": "cedar walton",
+                "role": [
+                    "piano"
+                ]
+            },
+            {
+                "id": 251331,
+                "name": "harold mabern",
+                "role": [
+                    "piano"
+                ]
+            },
+            {
+                "id": 3865,
+                "name": "herbie hancock",
+                "role": [
+                    "piano"
+                ]
+            },
+            {
+                "id": 294393,
+                "name": "john hicks",
+                "role": [
+                    "piano"
+                ]
+            },
+            {
+                "id": 2026738,
+                "name": "lamont johnson",
+                "role": [
+                    "piano"
+                ]
+            },
+            {
+                "id": 10620,
+                "name": "mccoy tyner",
+                "role": [
+                    "piano"
+                ]
+            },
+            {
+                "id": 359891,
+                "name": "vince benedetti",
+                "role": [
+                    "piano"
+                ]
+            },
+            {
+                "id": 252960,
+                "name": "michael cuscuna",
+                "role": [
+                    "producer"
+                ]
+            },
+            {
+                "id": 252962,
+                "name": "alfred lion",
+                "role": [
+                    "producer"
+                ]
+            },
+            {
+                "id": 29955,
+                "name": "duke pearson",
+                "role": [
+                    "producer"
+                ]
+            },
+            {
+                "id": 292019,
+                "name": "francis wolff",
+                "role": [
+                    "producer"
+                ]
+            },
+            {
+                "id": 934882,
+                "name": "jacques-yves barral",
+                "role": [
+                    "recorded"
+                ]
+            },
+            {
+                "id": 252966,
+                "name": "rudy van gelder",
+                "role": [
+                    "recorded"
+                ]
+            },
+            {
+                "id": 135872,
+                "name": "hank mobley",
+                "role": [
+                    "recorder",
+                    "main artist"
+                ]
+            },
+            {
+                "id": 257250,
+                "name": "curtis fuller",
+                "role": [
+                    "trombone"
+                ]
+            },
+            {
+                "id": 372549,
+                "name": "slide hampton",
+                "role": [
+                    "trombone"
+                ]
+            },
+            {
+                "id": 29969,
+                "name": "blue mitchell",
+                "role": [
+                    "trumpet"
+                ]
+            },
+            {
+                "id": 292020,
+                "name": "dizzy reece",
+                "role": [
+                    "trumpet"
+                ]
+            },
+            {
+                "id": 20956,
+                "name": "donald byrd",
+                "role": [
+                    "trumpet"
+                ]
+            },
+            {
+                "id": 55745,
+                "name": "freddie hubbard",
+                "role": [
+                    "trumpet"
+                ]
+            },
+            {
+                "id": 29976,
+                "name": "lee morgan",
+                "role": [
+                    "trumpet"
+                ]
+            },
+            {
+                "id": 255117,
+                "name": "woody shaw",
+                "role": [
+                    "trumpet"
+                ]
+            },
+            {
+                "id": 290370,
+                "name": "howard johnson",
+                "role": [
+                    "tuba"
+                ]
+            }
+        ],
+        "year": "1973",
+        "labels": [
+            "Mosaic Records (2)"
+        ],
+        "rank": 1181,
+        "rating": 3.55,
+        "genres": [
+            "Jazz Fusion",
+            " Chamber Jazz"
+        ]
+    },  {
+        "id": 1221385,
+        "title": "The Individualism Of Gil Evans",
+        "artists": [
+            {
+                "id": 255137,
+                "name": "gil evans",
+                "role": [
+                    "piano",
+                    "conductor",
+                    "arranged"
+                ]
+            },
+            {
+                "id": 275269,
+                "name": "al block",
+                "role": [
+                    "woodwind",
+                    "reeds"
+                ]
+            },
+            {
+                "id": 1069320,
+                "name": "andy fitzgerald",
+                "role": [
+                    "woodwind",
+                    "reeds"
+                ]
+            },
+            {
+                "id": 260721,
+                "name": "barry galbraith",
+                "role": [
+                    "guitar"
+                ]
+            },
+            {
+                "id": 265389,
+                "name": "ben tucker",
+                "role": [
+                    "recorder"
+                ]
+            },
+            {
+                "id": 271022,
+                "name": "bernie glow",
+                "role": [
+                    "trumpet"
+                ]
+            },
+            {
+                "id": 271038,
+                "name": "bill barber",
+                "role": [
+                    "tuba"
+                ]
+            },
+            {
+                "id": 1202917,
+                "name": "bob maxwell",
+                "role": [
+                    "harp"
+                ]
+            },
+            {
+                "id": 323461,
+                "name": "bob simpson",
+                "role": [
+                    "engineer"
+                ]
+            },
+            {
+                "id": 317502,
+                "name": "bob tricarico",
+                "role": [
+                    "woodwind",
+                    "reeds"
+                ]
+            },
+            {
+                "id": 97480,
+                "name": "creed taylor",
+                "role": [
+                    "producer"
+                ]
+            },
+            {
+                "id": 341139,
+                "name": "donald corrado",
+                "role": [
+                    "french horn"
+                ]
+            },
+            {
+                "id": 135885,
+                "name": "elvin jones",
+                "role": [
+                    "drums"
+                ]
+            },
+            {
+                "id": 145272,
+                "name": "eric dolphy",
+                "role": [
+                    "woodwind",
+                    "reeds"
+                ]
+            },
+            {
+                "id": 271027,
+                "name": "ernie royal",
+                "role": [
+                    "trumpet"
+                ]
+            },
+            {
+                "id": 275274,
+                "name": "frank rehak",
+                "role": [
+                    "trombone"
+                ]
+            },
+            {
+                "id": 260911,
+                "name": "garvin bushell",
+                "role": [
+                    "woodwind",
+                    "reeds"
+                ]
+            },
+            {
+                "id": 255129,
+                "name": "gary peacock",
+                "role": [
+                    "recorder"
+                ]
+            },
+            {
+                "id": 566918,
+                "name": "gene lees",
+                "role": [
+                    "liner notes"
+                ]
+            },
+            {
+                "id": 255468,
+                "name": "george marge",
+                "role": [
+                    "woodwind",
+                    "reeds"
+                ]
+            },
+            {
+                "id": 2044655,
+                "name": "gil cohen",
+                "role": [
+                    "french horn"
+                ]
+            },
+            {
+                "id": 72480,
+                "name": "jerome richardson",
+                "role": [
+                    "woodwind",
+                    "reeds"
+                ]
+            },
+            {
+                "id": 301721,
+                "name": "jim buffington",
+                "role": [
+                    "french horn"
+                ]
+            },
+            {
+                "id": 252996,
+                "name": "jimmy cleveland",
+                "role": [
+                    "trombone"
+                ]
+            },
+            {
+                "id": 255109,
+                "name": "johnny coles",
+                "role": [
+                    "trumpet"
+                ]
+            },
+            {
+                "id": 274971,
+                "name": "julius watkins",
+                "role": [
+                    "french horn"
+                ]
+            },
+            {
+                "id": 30184,
+                "name": "kenny burrell",
+                "role": [
+                    "guitar"
+                ]
+            },
+            {
+                "id": 271033,
+                "name": "louis r. mucci",
+                "role": [
+                    "trumpet"
+                ]
+            },
+            {
+                "id": 294186,
+                "name": "margaret ross",
+                "role": [
+                    "harp"
+                ]
+            },
+            {
+                "id": 258461,
+                "name": "milt hinton",
+                "role": [
+                    "recorder"
+                ]
+            },
+            {
+                "id": 260724,
+                "name": "osie johnson",
+                "role": [
+                    "drums"
+                ]
+            },
+            {
+                "id": 259778,
+                "name": "paul chambers",
+                "role": [
+                    "recorder"
+                ]
+            },
+            {
+                "id": 125450,
+                "name": "phil ramone",
+                "role": [
+                    "engineer"
+                ]
+            },
+            {
+                "id": 295645,
+                "name": "ray alonge",
+                "role": [
+                    "french horn"
+                ]
+            },
+            {
+                "id": 263441,
+                "name": "richard davis",
+                "role": [
+                    "recorder"
+                ]
+            },
+            {
+                "id": 356556,
+                "name": "robert northern",
+                "role": [
+                    "french horn"
+                ]
+            },
+            {
+                "id": 95088,
+                "name": "ron carter",
+                "role": [
+                    "recorder"
+                ]
+            },
+            {
+                "id": 252966,
+                "name": "rudy van gelder",
+                "role": [
+                    "engineer"
+                ]
+            },
+            {
+                "id": 97532,
+                "name": "steve lacy",
+                "role": [
+                    "woodwind",
+                    "reeds"
+                ]
+            },
+            {
+                "id": 255111,
+                "name": "tony studd",
+                "role": [
+                    "trombone"
+                ]
+            },
+            {
+                "id": 339187,
+                "name": "val valentin",
+                "role": [
+                    "engineer"
+                ]
+            },
+            {
+                "id": 29979,
+                "name": "wayne shorter",
+                "role": [
+                    "woodwind",
+                    "reeds"
+                ]
+            }
+        ],
+        "year": 1964,
+        "labels": [
+            "Verve Records"
+        ],
+        "rank": 195,
+        "rating": 3.8,
+        "genres": [
+            "Progressive Big Band",
+            " Post-Bop"
+        ]
+    }
+    
+]
