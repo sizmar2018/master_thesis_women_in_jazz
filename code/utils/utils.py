@@ -13,6 +13,7 @@ class Utils:
             self.config = configparser.ConfigParser()
             self.config.read(config_path)
     
+    #write content of Wikipedia instruments HTML page to a csv file 
     def get_instruments() :
         
         url = "../../data/instruments.html"
@@ -50,10 +51,25 @@ class Utils:
                 if is_found :
                     break        
             clean_roles.append(r_strip)
-        clean_roles  = list(set(clean_roles))
+        clean_roles = list(set(clean_roles))
         return clean_roles    
 
-    def clean_role(self,roles) :
+    def cluster_role_mfj(self,roles) :
+        clean_roles = self.cluster_role(roles)
+        clean_roles_final = list()
+        for r in clean_roles :
+            if 'voice' in r :
+                if 'vocal' not in clean_roles_final :
+                    clean_roles_final.append('vocal')
+            else :
+                r_clean = re.sub(r"\/(\W|\w)*", "", r)    
+                clean_roles_final.append(r_clean)
+
+        return clean_roles_final        
+
+
+    #Clear the role syntax and cluster then into smallest roles
+    def clean_role(self,roles,is_alb_data) :
        
         roles = roles.lower()
         roles = re.sub(r"\b[0-9]+\b\s*", "", roles)#remove numbers
@@ -61,10 +77,13 @@ class Utils:
         roles = re.sub("-", " ", roles)
         roles = re.sub(r"\[([A-Za-z0-9_\s\S,]+)\]","", roles)#remove full []
         roles = re.sub(r"\[([\s]*)\]","", roles)#remove empty []
-        roles  = roles.split(',')
+        roles = roles.split(',')
 
-        clean_roles = self.cluster_role(roles)
-       
+        if is_alb_data :
+            clean_roles = self.cluster_role(roles)
+        else : 
+            clean_roles = self.cluster_role_mfj(roles)
+
         return clean_roles 
 
     def clean_artist_name(self,name) :
@@ -78,9 +97,7 @@ class Utils:
         albums_id = np.int64(tuple["id"])
         album_title = tuple["title"]
         album_description = tuple["formats"]
-       # album_style =  None
-        #if "styles" in tuple :  
-         #     album_style = tuple["styles"]
+      
         if "descriptions" in album_description[0] :  
             album_description = album_description[0]["descriptions"]
         if 'Compilation' in album_description:
@@ -88,22 +105,41 @@ class Utils:
         
         extra_artists = tuple["extraartists"]
         main_artist_id = set()
-      
-        
         for main_artist in tuple["artists"] :
-            main_artist_id.add(main_artist['id'])
+            if  main_artist['id'] not in main_artist_id :
+                    main_artist_id.add(main_artist['id'])
        
         artists = list()
         for art in extra_artists : 
-            clean_roles = self.clean_role(art["role"]) 
+            clean_roles = self.clean_role(art["role"],True) 
             clean_name = self.clean_artist_name(art["name"])
             if art["id"] in main_artist_id : 
                 clean_roles.append("main artist")
-            
-            artists.append({"id":art["id"],"name":clean_name,"role": clean_roles})
+                main_artist_id.remove(art["id"])    
+            artists.append({"id":art["id"],"name": clean_name,"role": clean_roles})
+
+        for main_artist in tuple["artists"]  :
+              if main_artist['id'] in main_artist_id :
+                artists.append({"id":main_artist["id"],"name": main_artist['name'],"role": ["main artist"]}) 
         #label
         label = tuple['labels'][0]['name'].split(",")
         return (albums_id,album_title,artists,label)  
+
+    def get_concert_info_from_json(self,tuple):
+
+        concert_id = np.int64(tuple["id"])
+        concert_name = tuple["name"]
+        concert_location = tuple["location"]
+        concert_date = tuple["date"]
+        musicians = tuple["musicians"]
+
+        artists = list()
+        for m in musicians : 
+            clean_roles = self.clean_role(','.join(m["instruments"]),is_alb_data = False) 
+            clean_name = self.clean_artist_name(m["name"]) 
+            artists.append({"id":m["id"],"name": clean_name,"role": clean_roles})
+
+        return (concert_id,concert_name,artists,concert_date,concert_location)  
 
     def load_data_top_5000_albums(self):
         df = pd.read_csv(self.config['DEFAULT']['TOP_5000_PATH'],sep=",")

@@ -78,12 +78,15 @@ class Network:
 
         return (G,nb_album)
         
-    def build_album_projection_network(self,results,title_keyword,part_keyword) :  
+
+    def build_album_projection_network(self,results,title_keyword,part_keyword,date_keyword) :  
        
         G = nx.Graph()
         for alb in results:
-            G.add_node(alb['id'], name = alb[title_keyword], col = alb[part_keyword])
-            
+            if len(alb[part_keyword] ) == 0:  
+                    continue
+            G.add_node(alb['id'], name = alb[title_keyword], col = alb[part_keyword],byear=alb[date_keyword],eyear=2024)
+           # print(alb['id'])
             for neighbor in G.nodes(data=True):  # Check for mutual collaboration     
                 
                 if neighbor[0] == alb['id'] : #same node 
@@ -97,11 +100,11 @@ class Network:
                             
                                 col_set.add(neighbor_art['id'])
                                 if not G.has_edge(alb['id'],neighbor[0]) :
-                                       
-                                        G.add_edge(alb['id'],neighbor[0],weight = 1, col= str(neighbor_art['id']) )    
+                                        G.add_edge(alb['id'],neighbor[0],weight = 1,byear=alb[date_keyword],eyear=2024)#, col= str(neighbor_art['id']) )    
                                 else :
                                         G[alb['id']][neighbor[0]]['weight'] = G[alb['id']][neighbor[0]]['weight'] + 1 
-                                        G[alb['id']][neighbor[0]]['col'] = G[alb['id']][neighbor[0]]['col'] +"," + str(neighbor_art['id'])
+                                        #G[alb['id']][neighbor[0]]['col'] = G[alb['id']][neighbor[0]]['col'] +"," + str(neighbor_art['id'])
+        
         #remove artists attribut/ allow to save 
         for (n,d) in G.nodes(data=True):
             del d["col"]
@@ -110,28 +113,37 @@ class Network:
  
 
 
-    def build_collaborators_projection_network(self,results,idx_keyword) :
+    def build_collaborators_projection_network(self,results,idx_keyword,date_keyword) :
         G = nx.Graph()
         for alb in results:
             artists = alb[idx_keyword]
-            for i in range(0,len(artists)-1):  #Check for mutual collaboration     
+           
+            if len(artists) == 1 :
+                treated.add(artists[0]['id'])
+                if not G.has_node(int(artists[0]['id'])) :
+                        G.add_node(int(artists[0]['id']), name = artists[0]['name'],byear=alb[date_keyword],eyear=2024)     
+                       
+
+            for i in range(0,len(artists)-1):  #Check for mutual collaboration   
                 treated = set()
                 for j in range(i+1,len(artists)): 
                     art_in = artists[i]
                     art_out = artists[j] 
-
+                  
                     if art_out['id'] in treated or art_in['id'] in treated  or  art_in['id'] == art_out['id'] :
                         continue    
 
                     treated.add(art_in['id'])
+                   
                     if not G.has_node(art_in['id']) :
-                        G.add_node(art_in['id'], name = art_in['name'])                        
+                        G.add_node(art_in['id'], name = art_in['name'],byear=alb[date_keyword],eyear=2024)    
+                        
                     if not G.has_node(art_out['id']):
-                        G.add_node(art_out['id'], name = art_out['name'])     
-                
+                        G.add_node(art_out['id'], name = art_out['name'],byear=alb[date_keyword],eyear=2024)     
+                        
 
                     if not G.has_edge(art_in['id'],art_out['id']) :
-                        G.add_edge(art_in['id'],art_out['id'],weight = 1)    
+                        G.add_edge(art_in['id'],art_out['id'],weight = 1,byear=alb[date_keyword],eyear=2024)    
                     else :
                         G[art_in['id']][art_out['id']]['weight'] = G[art_in['id']][art_out['id']]['weight'] + 1  
         return G
