@@ -49,8 +49,9 @@ class Utils:
                         r_strip = instruments['instru'][i].lower()
                         is_found = True
                 if is_found :
-                    break        
-            clean_roles.append(r_strip)
+                    break      
+            if  r_strip not in 'nan' :   
+                clean_roles.append(r_strip)
         clean_roles = list(set(clean_roles))
         return clean_roles    
 
