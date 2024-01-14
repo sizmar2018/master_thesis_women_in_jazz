@@ -29,32 +29,46 @@ class Network:
       #  self.utils = Utils()
         return
     
-    def create_subgraph(self,G,album,artist,title_keyword,date_keyword) :
+    def create_subgraph(self,G,album,artist,title_keyword,date_keyword,genre_keyword,is_role_specific,role=None) :
         
         artist_id = np.int64("999" + str(artist['id'])) #Albums and artists can have the same id
         album_id = np.int64(album['id'])
         
         if not G.has_node(album_id) :
-            G.add_node(album_id,name=album[title_keyword],byear=album[date_keyword],eyear=2024, type='Album')
+            G.add_node(album_id,name=album[title_keyword],byear=album[date_keyword],eyear=2024, type='Album',genres=album[genre_keyword][0] if len(album[genre_keyword]) > 0 else "")
         if not G.has_node(artist_id) : 
-            G.add_node(artist_id,name = artist["name"],byear=album[date_keyword],eyear=2024,type='Artist')
+            G.add_node(artist_id,name = artist["name"],byear=album[date_keyword],eyear=2024,type='Artist',genres=album[genre_keyword][0] if len(album[genre_keyword]) > 0 else "")
 
         if not G.has_edge(album_id,artist_id) :   
-            G.add_edge(album_id,artist_id,weight = 1)            
+            if is_role_specific : 
+                #for r in artist['role']:
+                    if role not in artist['role'] :
+                        G.add_edge(album_id,artist_id,weight = 1)     
+                         
+            else :   
+                 G.add_edge(album_id,artist_id,weight = 1)            
         else :
-            G[album_id][artist_id]['weight'] = G[album_id][artist_id]['weight'] + 1    
+            if is_role_specific : 
+              if role not in artist['role'] :
+                        G[album_id][artist_id]['weight'] = G[album_id][artist_id]['weight'] + 1  
+            else :
+                G[album_id][artist_id]['weight'] = G[album_id][artist_id]['weight'] + 1    
        
         return G  
     
-    def build_bipartite_network(self,results,title_keyword,artist_keyword,date_keyword) :  
+    def build_bipartite_network(self,results,title_keyword,artist_keyword,date_keyword,genre_keyword) :  
         G = nx.Graph()
-       
         for alb in results :    
-           
             for art in alb[artist_keyword] :            
-                G = self.create_subgraph(G,alb,art,title_keyword,date_keyword)
+                G = self.create_subgraph(G,alb,art,title_keyword,date_keyword,genre_keyword,False)
         return G
-        
+
+    def build_role_specific_network(self,results,title_keyword,artist_keyword,date_keyword,genre_keyword,role) :
+        G = nx.Graph()
+        for alb in results :    
+            for art in alb[artist_keyword] :            
+                G = self.create_subgraph(G,alb,art,title_keyword,date_keyword,genre_keyword,True,role)
+        return G
   
     #deprecated
     def build_album_projection_network(self,results,title_keyword,part_keyword,date_keyword) :  

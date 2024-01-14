@@ -1,13 +1,15 @@
 
 class Concert(object):
   
-  def __init__(self,id,name,artists,date,location):
+  def __init__(self,id,name,artists,date,location,genres,categories):
     
     self.id = id
     self.name = name
     self.artists = artists
     self.date = date
     self.location= location
+    self.genres= genres
+    self.categories = categories
  
 
   def to_dict(self):
@@ -17,6 +19,8 @@ class Concert(object):
             'name': self.name,
             'musicians': self.artists,
             'date' : self.date,
-            'location' : self.location,        
+            'location' : self.location,    
+            'genres' : self.genres,
+            'categories' : self.categories   
         }   
   

@@ -1,0 +1,106 @@
+{
+    "categories": [
+      {
+        "category": "Jazz",
+        "genres": [
+          "Afro-Cuban jazz",
+          "Bebop",
+          "Dixieland jazz",
+          "Gypsy jazz",
+          "Jazz",
+          "Jazz fusion",
+          "Jazz-funk",
+          "Cool jazz",
+          "Free jazz",
+          "Hard bop",
+          "Lounge music",
+          "Swing music",
+          "Boogie-woogie",
+          "Post-bop",
+          "Crossover jazz",
+          "Bossa nova",
+          "Latin jazz",
+          "Acid jazz",
+          "big band"
+        
+        ]
+      },
+      {
+        "category": "Rock/Metal",
+        "genres": [
+          "Alternative rock",
+          "Garage rock",
+          "Grunge",
+          "Indie rock",
+          "Progressive rock",
+          "Psychedelic rock",
+          "Punk rock",
+          "Rock and roll",
+          "Rockabilly",
+          "Rock music",
+          "Post-rock",
+          "Black metal", 
+          "Heavy metal", 
+          "Symphonic metal",
+          "hard rock"
+        ]
+      },
+      {
+        "category": "Electronic/Dance",
+        "genres": [
+          "Ambient music",
+          "Breakbeat",
+          "Dance music",
+          "Drum and bass",
+          "Dub music",
+          "Dubstep",
+          "Electro",
+          "Electronic music",
+          "Electronica",
+          "Hardcore (electronic dance music)",
+          "House music",
+          "Techno",
+          "Trip hop",
+          "Disco"
+        ]
+      },
+      {
+        "category": "Pop",
+        "genres": ["A cappella", "Disco", "Pop music","Indie pop"]
+      },
+      {
+        "category": "Hip-Hop/Rap",
+        "genres": ["Alternative hip hop", "Gangsta rap", "Hip hop culture", "Rapping"]
+      },
+      {
+        "category": "R&B/Soul & blues",
+        "genres": ["Contemporary R&B", "Funk", "Neo soul", "Rhythm and blues", "Soul music","Gospel music","Blues"]
+      },
+      {
+        "category": "World Music",
+        "genres": ["Afrobeat","Salsa", "Samba", "Tango music", "World music", "Zouk","Flamenco",  "Latin American music","Música popular brasileira", "Music of Africa",
+                    "Music of Asia", "Music of Brazil","Music of Latin America","Music of the Caribbean","Dancehall","Reggae","Ska"]
+      },
+      {
+        "category": "Folk",
+        "genres": ["Bluegrass music", "Folk rock", "Traditional folk music", "Indie folk", "Country music"]
+      },
+      {
+        "category": "Classical/Contemporary",
+        "genres": ["Classical music", "Avant-garde music", "Contemporary classical", "Minimalist music", "Symphonic metal"]
+      },
+      {
+        "category": "Other",
+        "genres": [
+          "Easy listening",          
+          "New age music",
+          "New wave",
+          "Religious music",
+          "Soundtrack",
+          "Vocal music",
+          "A cappella"
+        ]
+      }
+    ]
+  }
+  
