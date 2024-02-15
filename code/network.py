@@ -225,43 +225,35 @@ class Network:
         top_degree_centrality = list(sort_degree.items())
         top_degree_centrality_values = list(sort_degree.values())
         names = list()
-        top20 = 0
         for node in top_degree_centrality :  
-            if top20 == 20 :
-                break
-            
             if g.nodes[node[0]]['type'] == "Artist" : 
-                    print(g.degree[node[0]])
                     names.append(g.nodes[node[0]]['name'])
-                    top20 +=1
-           
+
         return names,top_degree_centrality_values
 
     def get_degree_centrality(self,g):
         degree_centralities = nx.degree_centrality(g)
         sort_degree = dict(sorted(degree_centralities.items(), reverse=True,key=lambda item: item[1]))
-        top_degree_centrality_id = list(sort_degree.keys())[:20]
-        top_degree_centrality = list(sort_degree.values())[:20]
+        top_degree_centrality_id = list(sort_degree.keys())
+        top_degree_centrality = list(sort_degree.values())
         return top_degree_centrality_id,top_degree_centrality
     
+    def get_betweenness_centrality(self,g):
+        between_centralities = nx.betweenness_centrality(g)
+        sort_degree = dict(sorted(between_centralities.items(), reverse=True,key=lambda item: item[1]))
+        top_between_centrality_id = list(sort_degree.keys())
+        top_between_centrality = list(sort_degree.values())
+        return top_between_centrality_id,top_between_centrality
 
     def get_eigenvector_centrality(self,g):
         eigen_centralities = nx.eigenvector_centrality_numpy(g)
         sort_degree = dict(sorted(eigen_centralities.items(), reverse=True,key=lambda item: item[1]))
-        top_eigen_centrality_id = list(sort_degree.keys())[:20]
-        top_eigen_centrality = list(sort_degree.values())[:20]
+        top_eigen_centrality_id = list(sort_degree.keys())
+        top_eigen_centrality = list(sort_degree.values())
         return top_eigen_centrality_id,top_eigen_centrality
 
 
-    def get_betweenness_centrality(self,g):
-        between_centralities = nx.betweenness_centrality(g)
-        sort_degree = dict(sorted(between_centralities.items(), reverse=True,key=lambda item: item[1]))
-        top_between_centrality_id = list(sort_degree.keys())[:20]
-        top_between_centrality = list(sort_degree.values())[:20]
-        return top_between_centrality_id,top_between_centrality
-
-
-    def return_name_from_id(self,top10_degre_centrality,g) :
+    def get_name_from_id(self,top10_degre_centrality,g) :
         names = list()
         for node in top10_degre_centrality :  
             print(g.degree[node[0]])
@@ -272,15 +264,14 @@ class Network:
     def get_spearman_corr(self,g) : 
           
           degree_cen_k = self.get_degree_centrality(g)[1]
-          names,between_cen = self.get_betweenness_centrality(g)
+          betweenness_cen = self.get_betweenness_centrality(g)[1]
           eigenvector_cen = self.get_eigenvector_centrality(g)[1]
        
-          print("Spearman corr between projected degree k and betweenness centrality",stats.spearmanr(degree_cen_k, between_cen))
-          print("Spearman corr between projected degree k and eigenvector centrality is ",stats.spearmanr(degree_cen_k, eigenvector_cen))
-          print("Spearman corr between betweenness centrality and eigenvector centrality",stats.spearmanr(degree_cen_k, eigenvector_cen))
+          print("Spearman corr between projected degree k and betweenness centrality is",stats.spearmanr(degree_cen_k, betweenness_cen))
+          print("Spearman corr between projected degree k and eigenvector centrality is",stats.spearmanr(degree_cen_k, eigenvector_cen))
+          print("Spearman corr between betweenness centrality and eigenvector centrality is",stats.spearmanr(betweenness_cen, eigenvector_cen))
           
 
-          return names
    
     def get_pearson_correlation(self,g):
         r = nx.degree_pearson_correlation_coefficient(g)

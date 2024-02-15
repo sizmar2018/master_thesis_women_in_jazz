@@ -54,8 +54,8 @@ class Utils:
                     break      
             if  r_strip not in 'nan' :   
                 clean_roles.append(r_strip)
-        clean_roles = list(set(clean_roles))
-        return clean_roles    
+        
+        return list(set(clean_roles))    
 
     def cluster_role_mfj(self,roles) :
         clean_roles = self.cluster_role(roles)
@@ -71,7 +71,7 @@ class Utils:
         return clean_roles_final        
 
 
-    #Clear the role syntax and cluster then into smallest roles
+    #Clean the role syntax and cluster then into smallest roles
     def clean_role(self,roles,is_alb_data) :
        
         roles = roles.lower()
