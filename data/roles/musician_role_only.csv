@@ -1,63 +1,44 @@
-roles
-12 string acoustic guitar
-6 string banjo
-accompanied
+role
 accordion
-acoustic bass
-acoustic guitar
-acoustic piccolo bass
 afoxé
 agogô
 alphorn
-alto clarinet
-alto flute
 alto horn
-alto saxophone
 alto vocals
 angklung
-arco bass
-autoharp
 backing band
 backing vocals
 baglama
 bagpipes
+bajo sexto
 balafon
 balalaika
 band
 bandoneon
 banjo
 bansuri
-baritone guitar
 baritone horn
-baritone saxophone
+baritone vocals
 baryton
-bass
-bass clarinet
-bass drum
-bass flute
-bass guitar
-bass saxophone
-bass trombone
-bass trumpet
-bass tuba
-bass viol
-basset horn
 bassoon
 bata
+beats
 bell tree
 bells
 bendir
 berimbau
 biwa
 bodhrán
+body percussion
 bombarde
-bongos
+bombo
+bongo
 booking
 bouzouki
 brass
 bugle
-c melody saxophone
 cabasa
+caixa
 cajón
 castanets
 cavaquinho
@@ -65,31 +46,25 @@ caxixi
 celesta
 cello
 cgi artist
+chalumeau
+chamberlin
 chanter
 chapman stick
 charango
 chimes
 choir
+choreography
 chorus
 chorus master
 cimbalom
 clarinet
-classical guitar
 claves
 clavinet
-coloratura descant
-concert flute
-concert grand piano
+computer
 concertina
 concertmaster
 conch
 congas
-contra alto clarinet
-contrabass
-contrabass clarinet
-contrabass saxophone
-contrabass trombone
-contrabassoon
 cor anglais
 cornet
 coro
@@ -102,8 +77,9 @@ cymbal
 cümbüş
 daw
 dhol
+dholak
 didgeridoo
-dilruba
+dj mix
 djembe
 dobro
 double bass
@@ -114,55 +90,53 @@ drum programming
 drums
 duduk
 dulcimer
+dulcitone
 dunun
-electric bass
-electric guitar
-electric harpsichord
-electric organ
-electric piano
-electric upright bass
+ektare
 electric violin
 electronic drums
 electronic valve instrument
 electronic wind instrument
 english horn
+ensemble
 erhu
 euphonium
 featuring
 fiddle
-finger cymbals
+field recording
+fife
+film
 finger snaps
 flugelhorn
 flumpet
 flute
-frame drumdrum
+frame drum
 french horn
-fretless bass
-fretless guitar
 ganzá
+ghatam
 glockenspiel
 goblet drum
 gong
-grand piano
+guest
 guimbri
 guiro
 guitar
-guitar synthesizer
+hair
 handbell
 handclaps
-hang drum
+hang
 harmonica
 harmonium
 harmony vocals
 harp
-harpsichord
 helicon
+hichiriki
 hihat
 horn
 horns
 hurdy gurdy
 idiophone
-jews harp
+jarana
 kalimba
 kanjira
 kanun
@@ -171,24 +145,26 @@ kaval
 kazoo
 kemenche
 keyboards
+khene
 kora
 koto
+krar
 langeleik
-lap steel guitar
 launeddas
-lead guitar
+layout
 lead vocals
 leader
-loops²
+legal
+loops
 lute
+main artist
 mallets
-mandoguitar
 mandolin
-mandolin banjo
 manzello
 maracas
 marimba
-mastered
+marimbula
+marxophone
 mbira
 mc
 mellophone
@@ -197,20 +173,18 @@ melodica
 metallophone
 mezzo soprano
 midi controller
-mouth organ
+mixed
+model
 mridangam
 musette
 musical bow
 musical box
 musician
 nadaswaram
-narrator
 ney
 ngoni
 noises
-nose flute
 oboe
-oboe damore
 ocarina
 ophicleide
 orchestra
@@ -219,29 +193,27 @@ organ
 other
 oud
 overdubbed
+overtone voice
 pakhavaj
 pandeiro
-pedal steel guitar
+panpipes
 pedalboard
 percussion
 performer
 piano
-piccolo flute
-piccolo trumpet
+piccolo
 pipa
 pipe
 plated
-portuguese guitar
-pump organ
+programmed
 rabab
 rainstick
 rap
 rattle
+read
 reeds
+remix
 repinique
-resonator guitar
-rhythm guitar
-rhythm section
 rototoms
 sampler
 santoor
@@ -253,43 +225,47 @@ saxello
 saxophone
 scat
 score
-scratches
+sequenced
 serpent
 shaker
 shakuhachi
+shamisen
 shawm
 shekere
 shenai
+shinobue
 sho
+shruti box
 singing bowls
+sintir
 siren
 sitar
 sleeve
 sleeve notes
-slide guitar
 slide whistle
 slit drum
 snare
 solo vocal
 soloist
-sopranino saxophone
-soprano clarinet
-soprano saxophone
 soprano vocals
+sound designer
+sounds
 sousaphone
 steel drums
-steel guitar
+strings
 stritch
 stroh violin
 suona
-supervised
+surbahar
 surdo
 synth
+synthaxe
 synthesizer
 tabla
 taiko
 talkbox
 talking drum
+tam tam
 tambora
 tamborim
 tambourine
@@ -298,21 +274,16 @@ tap dance
 tape
 tape op
 tar (drum)
-technician
-tenor horn
-tenor saxophone
-tenor trombone
-tenor vocals
+temple bells
+temple block
 theorbo
 theremin
-thumb piano
 timbales
 timpani
 tin whistle
 tiple
 tom tom
 toy
-toy piano
 tres
 triangle
 trombone
@@ -321,21 +292,22 @@ tuba
 tubular bells
 tuner
 turntables
-twelve string guitar
 typography
 tárogató
 udu
 ukulele
-upright piano
-valve trombone
 veena
 vibraphone
+video editor
+viol
 viola
 viola caipira
 viola da gamba
 violin
-violoncello
 vj
+vocalese
+vocals
+vocoder
 voice
 whistle
 whistling
@@ -343,8 +315,6 @@ wind
 wind chimes
 wood block
 woodwind
-words
-written
 xylophone
 yodeling
 zabumba

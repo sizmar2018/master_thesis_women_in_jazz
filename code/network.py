@@ -33,11 +33,15 @@ class Network:
         
         artist_id = np.int64("999" + str(artist['id'])) #Albums and artists can have the same id
         album_id = np.int64(album['id'])
-        
+ 
         if not G.has_node(album_id) :
             G.add_node(album_id,name=album[title_keyword],byear=album[date_keyword],eyear=2024, type='Album',genres=album[genre_keyword][0] if len(album[genre_keyword]) > 0 else "")
         if not G.has_node(artist_id) : 
-            G.add_node(artist_id,name = artist["name"],byear=album[date_keyword],eyear=2024,type='Artist',genres=album[genre_keyword][0] if len(album[genre_keyword]) > 0 else "")
+            world_m = False  
+            if 'Pop' in album[genre_keyword] : 
+                world_m =True 
+        
+            G.add_node(artist_id,name = artist["name"],byear=album[date_keyword],eyear=2024,type='Artist',genres=album[genre_keyword][0] if len(album[genre_keyword]) > 0 else "",world=world_m)
 
         if not G.has_edge(album_id,artist_id) :   
             if is_role_specific : 
@@ -56,12 +60,17 @@ class Network:
        
         return G  
     
-    def build_bipartite_network(self,results,title_keyword,artist_keyword,date_keyword,genre_keyword) :  
+    def build_bipartite_network(self,results,title_keyword,artist_keyword,date_keyword,genre_keyword,max_date) :  
         G = nx.Graph()
         for alb in results :    
-            for art in alb[artist_keyword] :            
-                G = self.create_subgraph(G,alb,art,title_keyword,date_keyword,genre_keyword,False)
+            #if int(alb[date_keyword].split("-")[0]) < max_date  :
+          
+            #if int(alb[date_keyword].split("-")[0]) >= max_date and int(alb[date_keyword].split("-")[0]) <= 2023 :    
+                for art in alb[artist_keyword] :         
+                    G = self.create_subgraph(G,alb,art,title_keyword,date_keyword,genre_keyword,False)
         return G
+
+
 
     def build_role_specific_network(self,results,title_keyword,artist_keyword,date_keyword,genre_keyword,role) :
         G = nx.Graph()

@@ -94,7 +94,19 @@ class Utils:
         clean_name = re.sub(r"\(([0-9]+)\)", "", clean_name)
         clean_name = clean_name.strip()
         return clean_name
+    
+    def check_musician_role(self,role) :
+        musician_role = pd.read_csv("../../data/roles/musician_role_only.csv",sep=',') 
+        clean_role = list()
+        #print(musician_role['role'])
+        for r in role :
+            for r2 in musician_role['role'] : 
+                #print(r ,"-",r2)
+                if r == r2: 
+                  clean_role.append(r)
 
+        return clean_role       
+           
     def get_albums_info_from_json(self,tuple):
        
         albums_id = np.int64(tuple["id"])
@@ -114,12 +126,16 @@ class Utils:
        
         artists = list()
         for art in extra_artists : 
+       
             clean_roles = self.clean_role(art["role"],True) 
+            clean_roles = self.check_musician_role(clean_roles)
+
             clean_name = self.clean_artist_name(art["name"])
             if art["id"] in main_artist_id : 
                 clean_roles.append("main artist")
                 main_artist_id.remove(art["id"])    
-            artists.append({"id":art["id"],"name": clean_name,"role": clean_roles})
+            if len(clean_roles) !=0:
+                artists.append({"id":art["id"],"name": clean_name,"role": clean_roles})
 
         for main_artist in tuple["artists"]  :
               if main_artist['id'] in main_artist_id :
