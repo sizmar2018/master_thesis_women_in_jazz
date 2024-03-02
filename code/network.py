@@ -64,7 +64,6 @@ class Network:
         G = nx.Graph()
         for alb in results :    
             #if int(alb[date_keyword].split("-")[0]) < max_date  :
-          
             #if int(alb[date_keyword].split("-")[0]) >= max_date and int(alb[date_keyword].split("-")[0]) <= 2023 :    
                 for art in alb[artist_keyword] :         
                     G = self.create_subgraph(G,alb,art,title_keyword,date_keyword,genre_keyword,False)
@@ -133,7 +132,7 @@ class Network:
                     art_in = artists[i]
                     art_out = artists[j] 
                   
-                    if art_out['id'] in treated or art_in['id'] in treated  or  art_in['id'] == art_out['id'] :
+                    if art_out['id'] in treated or art_in['id'] in treated  or art_in['id'] == art_out['id'] :
                         continue    
 
                     treated.add(art_in['id'])
@@ -233,12 +232,11 @@ class Network:
         sort_degree = dict(sorted(degree_centralities.items(), reverse=True,key=lambda item: item[1]))
         top_degree_centrality = list(sort_degree.items())
         top_degree_centrality_values = list(sort_degree.values())
-        names = list()
+        ids = list()
         for node in top_degree_centrality :  
             if g.nodes[node[0]]['type'] == "Artist" : 
-                    names.append(g.nodes[node[0]]['name'])
-
-        return names,top_degree_centrality_values
+                    ids.append(node[0])
+        return ids,top_degree_centrality_values
 
     def get_degree_centrality(self,g):
         degree_centralities = nx.degree_centrality(g)
