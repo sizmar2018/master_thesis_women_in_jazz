@@ -1,0 +1,36 @@
+Source	Target	Type	weight_norm
+Jazz	Electronic/Dance	Undirected	0.105908
+Jazz	Classical/Contemporary	Undirected	0.17255
+Jazz	World Music	Undirected	0.255403
+Jazz	R&B/Soul & blues	Undirected	0.636167
+Jazz	Folk	Undirected	0.014409
+Jazz	Rock/Metal	Undirected	0.189841
+Jazz	Other	Undirected	0.038905
+Jazz	Pop	Undirected	0.157781
+Rock/Metal	Pop	Undirected	0.148415
+Rock/Metal	Electronic/Dance	Undirected	0.144452
+Rock/Metal	R&B/Soul & blues	Undirected	0.31196
+Rock/Metal	Folk	Undirected	0.086455
+Rock/Metal	Classical/Contemporary	Undirected	0.024135
+Rock/Metal	World Music	Undirected	0.169669
+Rock/Metal	Other	Undirected	0.029539
+Electronic/Dance	R&B/Soul & blues	Undirected	0.244236
+Electronic/Dance	Pop	Undirected	0.216859
+Electronic/Dance	World Music	Undirected	0.131844
+Electronic/Dance	Folk	Undirected	0.077089
+Electronic/Dance	Classical/Contemporary	Undirected	0.013329
+Electronic/Dance	Other	Undirected	0.00072
+Pop	R&B/Soul & blues	Undirected	0.262968
+Pop	Classical/Contemporary	Undirected	0.061599
+Pop	World Music	Undirected	0.154179
+Pop	Folk	Undirected	0.073487
+R&B/Soul & blues	World Music	Undirected	0.256484
+R&B/Soul & blues	Folk	Undirected	0.106268
+R&B/Soul & blues	Classical/Contemporary	Undirected	0.153818
+R&B/Soul & blues	Other	Undirected	0.003963
+World Music	Classical/Contemporary	Undirected	0.09366
+World Music	Folk	Undirected	0.082853
+World Music	Other	Undirected	0.007565
+Folk	Classical/Contemporary	Undirected	0.00036
+Folk	Other	Undirected	0.00072
+Classical/Contemporary	Other	Undirected	0.00072

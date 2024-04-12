@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2024-04-05">
+    <creator>NetworkX 3.1</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="node">
+      <attribute id="0" title="weight" type="long" />
+    </attributes>
+    <nodes>
+      <node id="afro-cuban jazz" label="afro-cuban jazz">
+        <attvalues>
+          <attvalue for="0" value="18" />
+        </attvalues>
+      </node>
+      <node id="bebop" label="bebop">
+        <attvalues>
+          <attvalue for="0" value="57" />
+        </attvalues>
+      </node>
+      <node id="dixieland jazz" label="dixieland jazz">
+        <attvalues>
+          <attvalue for="0" value="7" />
+        </attvalues>
+      </node>
+      <node id="gypsy jazz" label="gypsy jazz">
+        <attvalues>
+          <attvalue for="0" value="27" />
+        </attvalues>
+      </node>
+      <node id="jazz fusion" label="jazz fusion">
+        <attvalues>
+          <attvalue for="0" value="209" />
+        </attvalues>
+      </node>
+      <node id="jazz-funk" label="jazz-funk">
+        <attvalues>
+          <attvalue for="0" value="66" />
+        </attvalues>
+      </node>
+      <node id="cool jazz" label="cool jazz">
+        <attvalues>
+          <attvalue for="0" value="10" />
+        </attvalues>
+      </node>
+      <node id="free jazz" label="free jazz">
+        <attvalues>
+          <attvalue for="0" value="12" />
+        </attvalues>
+      </node>
+      <node id="hard bop" label="hard bop">
+        <attvalues>
+          <attvalue for="0" value="4" />
+        </attvalues>
+      </node>
+      <node id="lounge music" label="lounge music">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </node>
+      <node id="swing music" label="swing music">
+        <attvalues>
+          <attvalue for="0" value="75" />
+        </attvalues>
+      </node>
+      <node id="boogie-woogie" label="boogie-woogie">
+        <attvalues>
+          <attvalue for="0" value="0" />
+        </attvalues>
+      </node>
+      <node id="post-bop" label="post-bop">
+        <attvalues>
+          <attvalue for="0" value="89" />
+        </attvalues>
+      </node>
+      <node id="crossover jazz" label="crossover jazz">
+        <attvalues>
+          <attvalue for="0" value="59" />
+        </attvalues>
+      </node>
+      <node id="bossa nova" label="bossa nova">
+        <attvalues>
+          <attvalue for="0" value="46" />
+        </attvalues>
+      </node>
+      <node id="latin jazz" label="latin jazz">
+        <attvalues>
+          <attvalue for="0" value="31" />
+        </attvalues>
+      </node>
+      <node id="acid jazz" label="acid jazz">
+        <attvalues>
+          <attvalue for="0" value="8" />
+        </attvalues>
+      </node>
+      <node id="big band" label="big band">
+        <attvalues>
+          <attvalue for="0" value="87" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="afro-cuban jazz" target="crossover jazz" id="0" weight="39" />
+      <edge source="afro-cuban jazz" target="jazz fusion" id="1" weight="42" />
+      <edge source="afro-cuban jazz" target="bebop" id="2" weight="36" />
+      <edge source="afro-cuban jazz" target="post-bop" id="3" weight="10" />
+      <edge source="afro-cuban jazz" target="swing music" id="4" weight="43" />
+      <edge source="afro-cuban jazz" target="big band" id="5" weight="68" />
+      <edge source="afro-cuban jazz" target="jazz-funk" id="6" weight="35" />
+      <edge source="afro-cuban jazz" target="acid jazz" id="7" weight="3" />
+      <edge source="afro-cuban jazz" target="hard bop" id="8" weight="2" />
+      <edge source="afro-cuban jazz" target="gypsy jazz" id="9" weight="5" />
+      <edge source="bebop" target="post-bop" id="10" weight="74" />
+      <edge source="bebop" target="jazz fusion" id="11" weight="64" />
+      <edge source="bebop" target="crossover jazz" id="12" weight="46" />
+      <edge source="bebop" target="swing music" id="13" weight="60" />
+      <edge source="bebop" target="big band" id="14" weight="41" />
+      <edge source="bebop" target="latin jazz" id="15" weight="10" />
+      <edge source="bebop" target="jazz-funk" id="16" weight="40" />
+      <edge source="bebop" target="acid jazz" id="17" weight="3" />
+      <edge source="bebop" target="gypsy jazz" id="18" weight="10" />
+      <edge source="bebop" target="free jazz" id="19" weight="10" />
+      <edge source="gypsy jazz" target="jazz fusion" id="20" weight="13" />
+      <edge source="gypsy jazz" target="post-bop" id="21" weight="11" />
+      <edge source="gypsy jazz" target="swing music" id="22" weight="9" />
+      <edge source="gypsy jazz" target="jazz-funk" id="23" weight="7" />
+      <edge source="gypsy jazz" target="crossover jazz" id="24" weight="2" />
+      <edge source="gypsy jazz" target="hard bop" id="25" weight="2" />
+      <edge source="gypsy jazz" target="big band" id="26" weight="27" />
+      <edge source="gypsy jazz" target="bossa nova" id="27" weight="1" />
+      <edge source="jazz fusion" target="post-bop" id="28" weight="135" />
+      <edge source="jazz fusion" target="big band" id="29" weight="258" />
+      <edge source="jazz fusion" target="crossover jazz" id="30" weight="35" />
+      <edge source="jazz fusion" target="hard bop" id="31" weight="22" />
+      <edge source="jazz fusion" target="cool jazz" id="32" weight="19" />
+      <edge source="jazz fusion" target="acid jazz" id="33" weight="12" />
+      <edge source="jazz fusion" target="swing music" id="34" weight="94" />
+      <edge source="jazz fusion" target="latin jazz" id="35" weight="161" />
+      <edge source="jazz fusion" target="jazz-funk" id="36" weight="162" />
+      <edge source="jazz fusion" target="bossa nova" id="37" weight="27" />
+      <edge source="jazz-funk" target="post-bop" id="38" weight="53" />
+      <edge source="jazz-funk" target="swing music" id="39" weight="72" />
+      <edge source="jazz-funk" target="crossover jazz" id="40" weight="48" />
+      <edge source="jazz-funk" target="big band" id="41" weight="357" />
+      <edge source="jazz-funk" target="bossa nova" id="42" weight="6" />
+      <edge source="jazz-funk" target="acid jazz" id="43" weight="3" />
+      <edge source="jazz-funk" target="cool jazz" id="44" weight="9" />
+      <edge source="jazz-funk" target="hard bop" id="45" weight="18" />
+      <edge source="cool jazz" target="post-bop" id="46" weight="4" />
+      <edge source="cool jazz" target="hard bop" id="47" weight="4" />
+      <edge source="free jazz" target="post-bop" id="48" weight="10" />
+      <edge source="hard bop" target="post-bop" id="49" weight="6" />
+      <edge source="hard bop" target="swing music" id="50" weight="14" />
+      <edge source="hard bop" target="big band" id="51" weight="62" />
+      <edge source="swing music" target="crossover jazz" id="52" weight="611" />
+      <edge source="swing music" target="big band" id="53" weight="906" />
+      <edge source="swing music" target="post-bop" id="54" weight="17" />
+      <edge source="swing music" target="acid jazz" id="55" weight="8" />
+      <edge source="swing music" target="latin jazz" id="56" weight="3" />
+      <edge source="swing music" target="bossa nova" id="57" weight="5" />
+      <edge source="post-bop" target="crossover jazz" id="58" weight="19" />
+      <edge source="post-bop" target="big band" id="59" weight="56" />
+      <edge source="post-bop" target="acid jazz" id="60" weight="9" />
+      <edge source="post-bop" target="latin jazz" id="61" weight="5" />
+      <edge source="post-bop" target="bossa nova" id="62" weight="1" />
+      <edge source="crossover jazz" target="big band" id="63" weight="856" />
+      <edge source="crossover jazz" target="latin jazz" id="64" weight="8" />
+      <edge source="crossover jazz" target="acid jazz" id="65" weight="8" />
+      <edge source="bossa nova" target="big band" id="66" weight="2" />
+      <edge source="bossa nova" target="latin jazz" id="67" weight="21" />
+      <edge source="latin jazz" target="big band" id="68" weight="2" />
+      <edge source="acid jazz" target="big band" id="69" weight="12" />
+    </edges>
+  </graph>
+</gexf>

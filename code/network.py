@@ -23,6 +23,7 @@ sys.path.append('./utils')
 from utils import *
 
 plot_color = "#8EACCD"
+
 class Network:
     
     def __init__(self):
@@ -34,39 +35,44 @@ class Network:
         artist_id = np.int64("999" + str(artist['id'])) #Albums and artists can have the same id
         album_id = np.int64(album['id'])
  
-        if not G.has_node(album_id) :
-            G.add_node(album_id,name=album[title_keyword],byear=album[date_keyword],eyear=2024, type='Album',genres=album[genre_keyword][0] if len(album[genre_keyword]) > 0 else "")
+        if not G.has_node(album_id) : #subgenres
+            #G.add_node(album_id, type='Album',name=album[title_keyword],byear=album[date_keyword],eyear=2024,genres=album[genre_keyword] if len(album[genre_keyword]) >= 0 else list())
+             G.add_node(album_id, type='Album',name=album[title_keyword],byear=album[date_keyword],eyear=2024)
         if not G.has_node(artist_id) : 
-            world_m = False  
-            if 'Pop' in album[genre_keyword] : 
-                world_m =True 
-        
-            G.add_node(artist_id,name = artist["name"],byear=album[date_keyword],eyear=2024,type='Artist',genres=album[genre_keyword][0] if len(album[genre_keyword]) > 0 else "",world=world_m)
-
+            #G.add_node(artist_id, type='Artist',name = artist["name"],byear=album[date_keyword],eyear=2024,genres=set(album[genre_keyword]) if len(album[genre_keyword]) >= 0 else set(),
+             #          subgenres=set(album["genres"]) if (len(album["genres"]) >= 0) and ('' not in album["genres"]) else set())
+            G.add_node(artist_id, type='Artist',name = artist["name"],byear=album[date_keyword],eyear=2024)
+       # else: 
+        #    G.nodes[artist_id]['genres']|=set(album[genre_keyword])
+         #   G.nodes[artist_id]['subgenres']|=set(album["genres"])
+      
+      
         if not G.has_edge(album_id,artist_id) :   
             if is_role_specific : 
-                #for r in artist['role']:
-                    if role not in artist['role'] :
-                        G.add_edge(album_id,artist_id,weight = 1)     
-                         
+                if role not in artist['role'] :
+                    G.add_edge(album_id,artist_id,weight = 1)     
             else :   
-                 G.add_edge(album_id,artist_id,weight = 1)            
+                G.add_edge(album_id,artist_id,weight = 1)            
         else :
             if is_role_specific : 
               if role not in artist['role'] :
-                        G[album_id][artist_id]['weight'] = G[album_id][artist_id]['weight'] + 1  
+                G[album_id][artist_id]['weight'] = G[album_id][artist_id]['weight'] + 1  
             else :
                 G[album_id][artist_id]['weight'] = G[album_id][artist_id]['weight'] + 1    
        
         return G  
     
-    def build_bipartite_network(self,results,title_keyword,artist_keyword,date_keyword,genre_keyword,max_date) :  
+    def build_bipartite_network(self,results,title_keyword,artist_keyword,date_keyword,genre_keyword,date_min=None,data_max=None) :  
         G = nx.Graph()
         for alb in results :    
-            #if int(alb[date_keyword].split("-")[0]) < max_date  :
-            #if int(alb[date_keyword].split("-")[0]) >= max_date and int(alb[date_keyword].split("-")[0]) <= 2023 :    
+            #if int(alb[date_keyword].split("-")[0]) < 2000   :
+            if date_min != None :
+                if int(alb[date_keyword].split("-")[0]) >= date_min and int(alb[date_keyword].split("-")[0]) <= data_max :    
+                    for art in alb[artist_keyword] :         
+                            G = self.create_subgraph(G,alb,art,title_keyword,date_keyword,genre_keyword,False)
+            else : 
                 for art in alb[artist_keyword] :         
-                    G = self.create_subgraph(G,alb,art,title_keyword,date_keyword,genre_keyword,False)
+                   G = self.create_subgraph(G,alb,art,title_keyword,date_keyword,genre_keyword,False)
         return G
 
 
@@ -183,6 +189,7 @@ class Network:
     def get_nb_of_connected_comp(self,g) :
             print("Nb connected components : ", nx.number_connected_components(g))
 
+    #Plot the clusting coefficient by degree(histogramme representation) and safe the plot   
     def plot_hist_clustering_coeff_by_amount(self,g) :
         clustering_coefficients= nx.clustering(g).values()
         clustering_coefficients_occ = Counter(clustering_coefficients)
@@ -197,6 +204,8 @@ class Network:
         plt.savefig("../data/repartition/local-clust-coeff_hist.png", format="png")
         plt.show()
 
+
+    #Plot the clusting coefficient by degree(points representation) and safe the plot   
     def plot_clustering_coeff_by_degree(self,g) :
         
         d = defaultdict(list)
@@ -226,18 +235,21 @@ class Network:
 
     #---------------------Centrality ----------------------------------
 
-
+    #Compute the bipartite degree centrality
+    #return musician_id,centrality in DESC order
     def get_bipartite_degree_centrality(self,g):
-        degree_centralities = nx.degree_centrality(g)
-        sort_degree = dict(sorted(degree_centralities.items(), reverse=True,key=lambda item: item[1]))
-        top_degree_centrality = list(sort_degree.items())
-        top_degree_centrality_values = list(sort_degree.values())
+        degree_centralities = self.get_weighted_deg_centrality(g)
+     
+        top_degree_centrality =degree_centralities[0]
+        top_degree_centrality_values =degree_centralities[1]
         ids = list()
-        for node in top_degree_centrality :  
-            if g.nodes[node[0]]['type'] == "Artist" : 
-                    ids.append(node[0])
+        for id in top_degree_centrality :  
+            if g.nodes[id]['type'] == "Artist" : 
+                    ids.append(id)
         return ids,top_degree_centrality_values
 
+    #Compute the degree centrality
+    #return musician_id,centrality in DESC order
     def get_degree_centrality(self,g):
         degree_centralities = nx.degree_centrality(g)
         sort_degree = dict(sorted(degree_centralities.items(), reverse=True,key=lambda item: item[1]))
@@ -245,6 +257,22 @@ class Network:
         top_degree_centrality = list(sort_degree.values())
         return top_degree_centrality_id,top_degree_centrality
     
+
+    def get_weighted_deg_centrality(self,g):
+        weighted_degree_centrality = {}
+        for node in g.nodes:        
+            weighted_degree = sum(weight for _, _, weight in g.edges(node, data='weight'))
+            weighted_degree_centrality[node] = weighted_degree / (len(g.nodes) - 1)  # Normalize by n-1
+
+        sort_degree = dict(sorted(weighted_degree_centrality.items(), reverse=True,key=lambda item: item[1]))
+        top_degree_centrality_id = list(sort_degree.keys())
+        top_degree_centrality = list(sort_degree.values())
+
+        return top_degree_centrality_id,top_degree_centrality
+
+
+    #Compute the betweenness centrality
+    #return musician_id,centrality in DESC order
     def get_betweenness_centrality(self,g):
         between_centralities = nx.betweenness_centrality(g)
         sort_degree = dict(sorted(between_centralities.items(), reverse=True,key=lambda item: item[1]))
@@ -252,8 +280,10 @@ class Network:
         top_between_centrality = list(sort_degree.values())
         return top_between_centrality_id,top_between_centrality
 
+    #Compute the eigenvector centrality
+    #return musician_id,centrality in DESC order
     def get_eigenvector_centrality(self,g):
-        eigen_centralities = nx.eigenvector_centrality_numpy(g)
+        eigen_centralities = nx.eigenvector_centrality_numpy(g, weight="weight")
         sort_degree = dict(sorted(eigen_centralities.items(), reverse=True,key=lambda item: item[1]))
         top_eigen_centrality_id = list(sort_degree.keys())
         top_eigen_centrality = list(sort_degree.values())
@@ -268,9 +298,10 @@ class Network:
         return names       
 
 
+    #Compute Spearman correlation between degree,betweenness,eigenvector centralities
     def get_spearman_corr(self,g) : 
           
-          degree_cen_k = self.get_degree_centrality(g)[1]
+          degree_cen_k = self.get_weighted_deg_centrality(g)[1]
           betweenness_cen = self.get_betweenness_centrality(g)[1]
           eigenvector_cen = self.get_eigenvector_centrality(g)[1]
        

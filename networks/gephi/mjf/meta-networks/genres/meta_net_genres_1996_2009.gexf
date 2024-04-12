@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2024-04-05">
+    <creator>NetworkX 3.1</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="node">
+      <attribute id="0" title="weight" type="long" />
+    </attributes>
+    <nodes>
+      <node id="Jazz" label="Jazz">
+        <attvalues>
+          <attvalue for="0" value="2188" />
+        </attvalues>
+      </node>
+      <node id="Rock/Metal" label="Rock/Metal">
+        <attvalues>
+          <attvalue for="0" value="1529" />
+        </attvalues>
+      </node>
+      <node id="Electronic/Dance" label="Electronic/Dance">
+        <attvalues>
+          <attvalue for="0" value="832" />
+        </attvalues>
+      </node>
+      <node id="Pop" label="Pop">
+        <attvalues>
+          <attvalue for="0" value="939" />
+        </attvalues>
+      </node>
+      <node id="Hip-Hop/Rap" label="Hip-Hop/Rap">
+        <attvalues>
+          <attvalue for="0" value="593" />
+        </attvalues>
+      </node>
+      <node id="R&amp;B/Soul &amp; blues" label="R&amp;B/Soul &amp; blues">
+        <attvalues>
+          <attvalue for="0" value="1695" />
+        </attvalues>
+      </node>
+      <node id="World Music" label="World Music">
+        <attvalues>
+          <attvalue for="0" value="1995" />
+        </attvalues>
+      </node>
+      <node id="Folk" label="Folk">
+        <attvalues>
+          <attvalue for="0" value="452" />
+        </attvalues>
+      </node>
+      <node id="Classical/Contemporary" label="Classical/Contemporary">
+        <attvalues>
+          <attvalue for="0" value="267" />
+        </attvalues>
+      </node>
+      <node id="Other" label="Other">
+        <attvalues>
+          <attvalue for="0" value="264" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="Jazz" target="World Music" id="0" weight="3221" />
+      <edge source="Jazz" target="Classical/Contemporary" id="1" weight="1153" />
+      <edge source="Jazz" target="Electronic/Dance" id="2" weight="1085" />
+      <edge source="Jazz" target="Other" id="3" weight="710" />
+      <edge source="Jazz" target="R&amp;B/Soul &amp; blues" id="4" weight="4832" />
+      <edge source="Jazz" target="Hip-Hop/Rap" id="5" weight="584" />
+      <edge source="Jazz" target="Rock/Metal" id="6" weight="2399" />
+      <edge source="Jazz" target="Pop" id="7" weight="1679" />
+      <edge source="Jazz" target="Folk" id="8" weight="795" />
+      <edge source="Rock/Metal" target="World Music" id="9" weight="943" />
+      <edge source="Rock/Metal" target="Hip-Hop/Rap" id="10" weight="381" />
+      <edge source="Rock/Metal" target="Classical/Contemporary" id="11" weight="424" />
+      <edge source="Rock/Metal" target="Electronic/Dance" id="12" weight="488" />
+      <edge source="Rock/Metal" target="R&amp;B/Soul &amp; blues" id="13" weight="2665" />
+      <edge source="Rock/Metal" target="Other" id="14" weight="241" />
+      <edge source="Rock/Metal" target="Pop" id="15" weight="1414" />
+      <edge source="Rock/Metal" target="Folk" id="16" weight="714" />
+      <edge source="Electronic/Dance" target="World Music" id="17" weight="472" />
+      <edge source="Electronic/Dance" target="Hip-Hop/Rap" id="18" weight="234" />
+      <edge source="Electronic/Dance" target="Classical/Contemporary" id="19" weight="67" />
+      <edge source="Electronic/Dance" target="R&amp;B/Soul &amp; blues" id="20" weight="877" />
+      <edge source="Electronic/Dance" target="Pop" id="21" weight="953" />
+      <edge source="Electronic/Dance" target="Folk" id="22" weight="78" />
+      <edge source="Electronic/Dance" target="Other" id="23" weight="64" />
+      <edge source="Pop" target="World Music" id="24" weight="703" />
+      <edge source="Pop" target="Hip-Hop/Rap" id="25" weight="180" />
+      <edge source="Pop" target="R&amp;B/Soul &amp; blues" id="26" weight="1738" />
+      <edge source="Pop" target="Folk" id="27" weight="503" />
+      <edge source="Pop" target="Other" id="28" weight="263" />
+      <edge source="Pop" target="Classical/Contemporary" id="29" weight="212" />
+      <edge source="Hip-Hop/Rap" target="World Music" id="30" weight="379" />
+      <edge source="Hip-Hop/Rap" target="Classical/Contemporary" id="31" weight="90" />
+      <edge source="Hip-Hop/Rap" target="R&amp;B/Soul &amp; blues" id="32" weight="855" />
+      <edge source="Hip-Hop/Rap" target="Folk" id="33" weight="7" />
+      <edge source="Hip-Hop/Rap" target="Other" id="34" weight="40" />
+      <edge source="R&amp;B/Soul &amp; blues" target="World Music" id="35" weight="1448" />
+      <edge source="R&amp;B/Soul &amp; blues" target="Classical/Contemporary" id="36" weight="319" />
+      <edge source="R&amp;B/Soul &amp; blues" target="Other" id="37" weight="146" />
+      <edge source="R&amp;B/Soul &amp; blues" target="Folk" id="38" weight="664" />
+      <edge source="World Music" target="Classical/Contemporary" id="39" weight="512" />
+      <edge source="World Music" target="Other" id="40" weight="183" />
+      <edge source="World Music" target="Folk" id="41" weight="273" />
+      <edge source="Folk" target="Other" id="42" weight="338" />
+      <edge source="Folk" target="Classical/Contemporary" id="43" weight="78" />
+      <edge source="Classical/Contemporary" target="Other" id="44" weight="39" />
+    </edges>
+  </graph>
+</gexf>

@@ -37,12 +37,12 @@ class Utils:
                 w = csv.writer(f)
                 w.writerow(csv_line)
 
-
+    #Group similar instrument into the same instruments class for the  dataset. Ex: alto saxophone and baritone saxophone go to class saxophone
     def cluster_role(self,roles) : 
         instruments = pd.read_csv('../../data/instruments/instruments.csv',sep=',')
         instruments['sub_instru'] = instruments['sub_instru'].apply(lambda x :x.split(','))
         clean_roles = list()
-        for r in  roles :          
+        for r in roles :          
             r_strip = r.strip()
             is_found = False
             for i in range(0,len(instruments)) :
@@ -57,6 +57,7 @@ class Utils:
         
         return list(set(clean_roles))    
 
+     #Group similar instrument into the same instruments class for the MJF dataset using @see cluster_role method.  
     def cluster_role_mfj(self,roles) :
         clean_roles = self.cluster_role(roles)
         clean_roles_final = list()
@@ -89,24 +90,27 @@ class Utils:
 
         return clean_roles 
 
+
+
+    #Uniformize musician name
     def clean_artist_name(self,name) :
         clean_name = name.lower()
         clean_name = re.sub(r"\(([0-9]+)\)", "", clean_name)
         clean_name = clean_name.strip()
         return clean_name
     
+    # check if the role list provided contains an instrument role
     def check_musician_role(self,role) :
         musician_role = pd.read_csv("../../data/roles/musician_role_only.csv",sep=',') 
         clean_role = list()
-        #print(musician_role['role'])
         for r in role :
             for r2 in musician_role['role'] : 
-                #print(r ,"-",r2)
                 if r == r2: 
                   clean_role.append(r)
 
         return clean_role       
-           
+
+    #transform a json tuple to album informations    
     def get_albums_info_from_json(self,tuple):
        
         albums_id = np.int64(tuple["id"])
@@ -142,9 +146,11 @@ class Utils:
                 artists.append({"id":main_artist["id"],"name": main_artist['name'],"role": ["main artist"]}) 
         #label
         label = tuple['labels'][0]['name'].split(",")
+
         return (albums_id,album_title,artists,label)  
 
     
+    #Get the music genre of a concert with its id from Wikidata  
     def get_concert_genres(self,concert_id) : 
         
         endpoint_url = "https://query.wikidata.org/sparql"
@@ -165,33 +171,30 @@ class Utils:
         """
 
         user_agent = "WDQS-example Python/%s.%s" % (sys.version_info[0], sys.version_info[1])
-        # TODO adjust user agent; see https://w.wiki/CX6
         sparql = SPARQLWrapper(endpoint_url, agent=user_agent)
         sparql.setQuery(query)
         sparql.setReturnFormat(JSON)
         results = sparql.query().convert() 
         return results["results"]["bindings"][0]['genre_names']['value'].split(';')
 
+    #transform a json tuple to concert informations   
     def get_concert_info_from_json(self,tuple):
 
         concert_id = np.int64(tuple["id"])
         concert_name = tuple["name"]
         concert_location = tuple["location"]
         concert_date = tuple["date"]
-        #concert_genres = self.get_concert_genres(concert_id)
         concert_genres =  tuple["genres"]
 
         musicians = tuple["musicians"]
 
         artists = list()
         for m in musicians : 
-            #clean_roles = self.clean_role(','.join(m["instruments"]),is_alb_data = False) 
-            #clean_name = self.clean_artist_name(m["name"]) 
             artists.append({"id":m["id"],"name": m['name'],"role": m['role']})
 
         return (concert_id,concert_name,artists,concert_date,concert_location,concert_genres)  
 
-
+  
     def load_data_top_5000_albums(self):
         df = pd.read_csv(self.config['DEFAULT']['TOP_5000_PATH'],sep=",")
         df = df.reset_index()
