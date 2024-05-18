@@ -12,7 +12,7 @@ In this master thesis, we will analyze the networks built from the Montreux Jazz
 
 <img width="1000px" src="./networks/images/mjf/mjf_concerts_projection_net.png" alt="concert netwrok png" />
 
-## directories Organisation
+## Directories organisation
 
 `/code` : Contains all the code to obtain the results of the master thesis 
 
@@ -22,8 +22,8 @@ In this master thesis, we will analyze the networks built from the Montreux Jazz
 
 `+networks` : Contains all the gephi networks file and images of the networks used in the master thesis
 
-### old 
+### Old 
 
-`/pre-master-thesis`: contains pre-master thesis works from 2023 
+`/pre-master-thesis`: Contains pre-master thesis works from 2023 
 
-`/presentation` : presentation of the s pre-master thesis from 2023
+`/presentation` : Presentation of the pre-master thesis from 2023
