@@ -1,6 +1,14 @@
+#request for acces to the  data
 data/mjf
 data/mjf/*
-
+data/archives
+data/archives/*
+data/artists/*
+data/artists/mjf*.csv
+data/instruments/mjf*.csv
+data/roles/mjf*.csv
+data/roles/musician*.csv
+#too big
 data/albums/discogs_albums.csv
 
 
