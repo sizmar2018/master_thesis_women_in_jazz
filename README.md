@@ -20,7 +20,7 @@ In this master thesis, we will analyze the networks built from the Montreux Jazz
 
 `/latex_report`: Contains the latex code for the master thesis report as well as all images used in it and the report in pdf of the master thesis. 
 
-`+networks` : Contains all the gephi networks file and images of the networks used in the master thesis
+`/networks` : Contains all the gephi networks file and images of the networks used in the master thesis
 
 ### Old 
 
