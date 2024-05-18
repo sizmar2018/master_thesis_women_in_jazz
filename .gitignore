@@ -8,6 +8,8 @@ data/artists/mjf*.csv
 data/instruments/mjf*.csv
 data/roles/mjf*.csv
 data/roles/musician*.csv
+
+
 #too big
 data/albums/discogs_albums.csv
 
@@ -25,3 +27,6 @@ code/cleaning/__pycache__/*
 
 code/utils/__pycache__/
 code/utils/__pycache__/*
+
+
+code/discogs/__pycache__/*
