@@ -28,5 +28,7 @@ code/cleaning/__pycache__/*
 code/utils/__pycache__/
 code/utils/__pycache__/*
 
+code/rym/__pycache__/
+code/rym/__pycache__/*
 
-code/discogs/__pycache__/*
+code/config.ini
